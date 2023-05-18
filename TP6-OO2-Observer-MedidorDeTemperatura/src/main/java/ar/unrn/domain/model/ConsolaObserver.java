@@ -4,13 +4,10 @@ public class ConsolaObserver implements Observer {
 
 	private static final int TEMPERATURA_MINIMA = 12;
 	private static final int TEMPERATURA_MAXIMA = 17;
-	private Observer observer;
 
-	public ConsolaObserver(Observer observer) {
-		this.observer = observer;
+	public ConsolaObserver() {
+
 	}
-
-	// IMPLEMENTACION CON DECORATOR
 
 	@Override
 	public void actualizar(String valor) {
@@ -24,8 +21,6 @@ public class ConsolaObserver implements Observer {
 		if (Integer.valueOf(temperatura) > TEMPERATURA_MAXIMA) {
 			System.out.println("Hace calor, se encendera el aire acondicionado");
 		}
-
-		this.observer.actualizar(valor);
 	}
 
 }
