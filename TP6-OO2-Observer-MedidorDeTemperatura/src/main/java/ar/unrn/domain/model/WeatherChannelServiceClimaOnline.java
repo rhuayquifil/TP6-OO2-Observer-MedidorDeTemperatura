@@ -10,16 +10,16 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class WeatherChannelService implements ClimaOnline {
+public class WeatherChannelServiceClimaOnline implements ClimaOnline {
 
 	private String url;
 
-	public WeatherChannelService(String url) {
+	public WeatherChannelServiceClimaOnline(String url) {
 		super();
 		this.url = url;
 	}
 
-//	@Override
+	@Override
 	public String temperatura() throws DomainExceptions {
 		int temp = new Random().nextInt(100);
 
@@ -45,10 +45,8 @@ public class WeatherChannelService implements ClimaOnline {
 			return String.format("%.0f", temperaturaCelsius) + " c";
 
 		} catch (IOException e) {
-			throw new DomainExceptions("");
+			throw new DomainExceptions("Error. Al leer temperatura");
 		}
-
-		// TENES QUE CONSUMIR DE LA API https://openweathermap.org/current
 	}
 
 	private void validaciones(Response response) throws IOException, DomainExceptions {
