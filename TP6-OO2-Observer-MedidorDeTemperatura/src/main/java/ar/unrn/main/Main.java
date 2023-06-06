@@ -3,6 +3,7 @@ package ar.unrn.main;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.unrn.domain.model.CacheWeatherChannelServiceClimaOnline;
 import ar.unrn.domain.model.ClimaOnline;
 import ar.unrn.domain.model.ConsolaObserver;
 import ar.unrn.domain.model.DefaultMedidorTemperaturaObservable;
@@ -31,10 +32,6 @@ public class Main {
 
 			MedidorTemperatura medidorDefaultYNotificar = new NotificarMedidorTemperatura(subscriptores,
 					new DefaultMedidorTemperaturaObservable(climaProxy));
-
-//			MedidorTemperatura medidorDefaultYNotificar = new NotificarMedidorTemperatura(subscriptores,
-//					new DefaultMedidorTemperaturaObservable(new WeatherChannelServiceClimaOnline(
-//							"https://api.openweathermap.org/data/2.5/weather?q=viedma&appid=a11fc6589d9bf8f5453f8e4442c4efe0")));
 
 			System.out.println(medidorDefaultYNotificar.leerTemperatura());
 		} catch (NumberFormatException | DomainExceptions e) {

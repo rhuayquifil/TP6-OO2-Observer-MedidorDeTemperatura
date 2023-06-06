@@ -1,10 +1,6 @@
-package ar.unrn.main;
+package ar.unrn.domain.model;
 
 import java.time.LocalDateTime;
-
-import ar.unrn.domain.model.ClimaOnline;
-import ar.unrn.domain.model.DomainExceptions;
-import ar.unrn.domain.model.WeatherChannelServiceClimaOnline;
 
 public class CacheWeatherChannelServiceClimaOnline implements ClimaOnline {
 
@@ -21,8 +17,6 @@ public class CacheWeatherChannelServiceClimaOnline implements ClimaOnline {
 
 	@Override
 	public String temperatura() throws DomainExceptions {
-
-		// PREGUNTA SI ESTA BIEN ESTO
 
 		if ((weatherChannelServiceClimaOnline != null)
 				& (LocalDateTime.now().isBefore(this.cacheTime.plusMinutes(30)))) {
